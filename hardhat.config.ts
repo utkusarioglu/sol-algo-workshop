@@ -116,8 +116,10 @@ const hardhatConfig: HardhatUserConfig = {
 
   ...(config.has("apiKeys.coinMarketCap") && {
     gasReporter: {
+      outputFile: `artifacts/gas-reporter/gas-usage.${Math.floor(Date.now()/1e3)}.log`,
       token: config.get<string>("features.gasReporter.token"),
       enabled: config.get<boolean>("features.gasReporter.enabled"),
+      noColors: true,
       coinmarketcap: config.get<string>("apiKeys.coinMarketCap"),
       currency: "USD",
     },

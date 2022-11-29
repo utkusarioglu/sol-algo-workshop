@@ -1,6 +1,6 @@
 features:
   gasReporter:
-    enabled: false
+    enabled: true
     token: eth
   multiUserTesting: false
 

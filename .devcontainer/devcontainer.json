@@ -16,7 +16,7 @@
         }
       },
       "extensions": [
-        "JuanBlanco.solidity",
+        "NomicFoundation.hardhat-solidity",
         "MythX.mythxvsc",
         "joaompinto.vscode-graphviz",
         "cschleiden.vscode-github-actions",

@@ -1,3 +1,3 @@
 import { simpleDeploy } from "_services/deployment.service";
 
-export default simpleDeploy(true, "Storage", []);
+export default simpleDeploy(false, "Storage", []);

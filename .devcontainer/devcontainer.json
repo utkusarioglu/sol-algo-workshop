@@ -1,0 +1,27 @@
+{
+  "name": "hardhat-repo-template.templates.utkusarioglu.com",
+  "dockerComposeFile": [
+    "../.docker/docker-compose.dev.yml",
+    "docker-compose.yml"
+  ],
+  "service": "hardhat-repo-template",
+  "workspaceFolder": "/utkusarioglu/templates/hardhat-repo-template",
+  "postCreateCommand": "scripts/post-create-command.sh",
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "workbench.colorCustomizations": {
+          "activityBar.background": "#EE0000",
+          "activityBar.foreground": "#000000"
+        }
+      },
+      "extensions": [
+        "JuanBlanco.solidity",
+        "MythX.mythxvsc",
+        "joaompinto.vscode-graphviz",
+        "cschleiden.vscode-github-actions",
+        "GitHub.vscode-pull-request-github"
+      ]
+    }
+  }
+}

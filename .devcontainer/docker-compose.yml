@@ -1,0 +1,19 @@
+version: "3.9"
+services:
+  hardhat-repo-template:
+    environment:
+      GH_TOKEN: ${GH_TOKEN}
+    volumes:
+      - type: volume
+        source: vscode-server-extensions
+        target: ${HOME}/.vscode-server/extensions
+      - type: volume
+        source: vscode-server-insiders-extensions
+        target: ${HOME}/.vscode-server-insiders/extensions
+    command: /bin/sh -c "while sleep 1000; do :; done"
+
+volumes:
+  vscode-server-extensions:
+    name: hardhat-repo-template-vscode-server-extensions
+  vscode-server-insiders-extensions:
+    name: hardhat-repo-template-vscode-server-extensions-insiders

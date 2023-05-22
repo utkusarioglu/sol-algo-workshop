@@ -1,0 +1,17 @@
+{
+  "solidity.compileUsingRemoteVersion": "v0.8.16+commit.07a7930e",
+  "solidity.defaultCompiler": "remote",
+  "runOnSave.commands": [
+    {
+      "match": "\\.env(\\.\\w+)?$",
+      "notMatch": "\\.example$",
+      "isAsync": true,
+      "command": "/scripts/create-env-example.sh"
+    },
+    {
+      "match": "\\.env$",
+      "isAsync": true,
+      "command": "gh secret set -f .env"
+    },
+  ]
+}

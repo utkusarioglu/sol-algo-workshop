@@ -1,11 +1,11 @@
 {
-  "name": "hardhat-repo-template.templates.utkusarioglu.com",
+  "name": "sol-lc-workshop.workshops.utkusarioglu.com",
   "dockerComposeFile": [
     "../.docker/docker-compose.dev.yml",
     "docker-compose.yml"
   ],
-  "service": "hardhat-repo-template",
-  "workspaceFolder": "/utkusarioglu/templates/hardhat-repo-template",
+  "service": "sol-lc-workshop",
+  "workspaceFolder": "/utkusarioglu/workshops/sol-lc-workshop",
   "postCreateCommand": "scripts/post-create-command.sh",
   "customizations": {
     "vscode": {

@@ -1,12 +1,10 @@
 import type { SignerWithAddress } from "@nomiclabs/hardhat-ethers/signers";
 import { ethers, run } from "hardhat";
-import { use, expect as chaiExpect } from "chai";
-import { solidity } from "ethereum-waffle";
+import { expect as chaiExpect } from "chai";
 import config from "config";
 import type { ConfigAccount, ConfigAccounts } from "../types/config";
-import type { Contract } from "ethers";
+import type { BaseContract } from "ethers";
 
-use(solidity);
 
 export const expect = chaiExpect;
 
@@ -99,7 +97,7 @@ export const testAccounts = config.get<boolean>("features.multiUserTesting")
  * signerInstance objects
  * @returns deployer, signer and their contract instances
  */
-export async function beforeEachFacade<C extends Contract>(
+export async function beforeEachFacade<C extends BaseContract>(
   contractName: string,
   args: any[],
   index: number
@@ -107,14 +105,15 @@ export async function beforeEachFacade<C extends Contract>(
   await run("compile", { quiet: true, noTypechain: true });
   const deployer = await getSigner(0);
   const signer = await getSigner(index);
-  const contract = await ethers.getContractFactory(contractName, deployer);
-  const deployerInstance = (await contract.deploy(...args)) as C;
-  await deployerInstance.deployed();
-  const signerInstance = deployerInstance.connect(signer) as C;
+  const contractFactory = await ethers.getContractFactory(contractName, deployer);
+  const deploymentInstance = (await contractFactory.deploy(...args)) as C;
+  console.log({instance: deploymentInstance})
+  // await deployerInstance["deployed"]!();
+  const signerInstance = deploymentInstance.connect(signer) as C;
   return {
     deployer,
     signer,
-    deployerInstance,
+    deployerInstance: deploymentInstance,
     signerInstance,
   };
 }

@@ -3,18 +3,20 @@ import { type HardhatUserConfig } from "hardhat/types";
 import "tsconfig-paths/register";
 import "hardhat-gas-reporter";
 import "@nomiclabs/hardhat-ethers";
-import "@nomiclabs/hardhat-waffle";
+// import "@nomiclabs/hardhat-waffle";
 import "hardhat-spdx-license-identifier";
+import "@nomicfoundation/hardhat-chai-matchers";
 import "solidity-coverage";
-import "@openzeppelin/hardhat-upgrades";
+  // import "@openzeppelin/hardhat-upgrades"; // TODO causes issues with ethers v6
 import "_tasks/account-balances.task";
 import "_tasks/named-accounts.task";
 import "_tasks/config-value.task";
-import "hardhat-storage-layout";
-// import "@nomiclabs/hardhat-etherscan";
+// This one is disabled because it keeps logging an object to the console
+// import "hardhat-storage-layout";
+import "@nomiclabs/hardhat-etherscan";
 import "hardhat-deploy";
 import "@typechain/hardhat";
-import "@typechain/ethers-v5";
+import "@typechain/ethers-v6";
 import "hardhat-tracer";
 import { removeConsoleLog } from "hardhat-preprocessor";
 import config from "config";
@@ -36,6 +38,7 @@ const hardhatConfig: HardhatUserConfig = {
     imports: "artifacts/imports",
     deployments: "artifacts/deployments",
     deploy: "src/deployers",
+    // @ts-ignore
     newStorageLayoutPath: "artifacts/storage-layout",
   },
   solidity: {
@@ -95,7 +98,7 @@ const hardhatConfig: HardhatUserConfig = {
 
   typechain: {
     outDir: "./artifacts/typechain",
-    target: "ethers-v5",
+    target: "ethers-v6",
     alwaysGenerateOverloads: false,
   },
   spdxLicenseIdentifier: {

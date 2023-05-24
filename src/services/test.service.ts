@@ -107,8 +107,6 @@ export async function beforeEachFacade<C extends BaseContract>(
   const signer = await getSigner(index);
   const contractFactory = await ethers.getContractFactory(contractName, deployer);
   const deploymentInstance = (await contractFactory.deploy(...args)) as C;
-  console.log({instance: deploymentInstance})
-  // await deployerInstance["deployed"]!();
   const signerInstance = deploymentInstance.connect(signer) as C;
   return {
     deployer,

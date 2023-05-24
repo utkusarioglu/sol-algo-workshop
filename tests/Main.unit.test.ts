@@ -29,6 +29,15 @@ describe(CONTRACT_NAME, () => {
           return expect(response).to.equal(expected);
         });
       });
+
+      describe("incrementCounter", () => {
+        it("Does what is expected", async () => {
+          const before = await instance.getCounter();
+          await instance.incrementCounter();
+          const after = await instance.getCounter();
+          expect(after - before).to.eq(1n);
+        })
+      });
     });
   });
 });

@@ -17,6 +17,8 @@ type SimpleDeployFactory = (
  */
 export const simpleDeploy: SimpleDeployFactory =
   (enabled, contractName, args) =>
+    // @ts-ignore This is needed because `storageLayout` is by default 
+    // disabled in hardhat config
   async ({ deployments: { deploy }, getNamedAccounts, storageLayout }) => {
     if (!enabled) {
       console.log(
@@ -30,6 +32,9 @@ export const simpleDeploy: SimpleDeployFactory =
       from: deployer,
       args,
     })) as any; // #1
-    await storageLayout.export();
+
+    if (!!storageLayout && !!storageLayout.export) {
+      await storageLayout.export();
+    }
     console.log(`"${contractName}" deployed at ${instance.address}`);
   };

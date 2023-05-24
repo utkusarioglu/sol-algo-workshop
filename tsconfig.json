@@ -1,15 +1,27 @@
 {
   "compilerOptions": {
-    "target": "es2016",
+    "target": "ESNext",
     "module": "commonjs",
     "baseUrl": "./",
     "paths": {
-      "_services/*": ["src/services/*"],
-      "_tasks/*": ["src/tasks/*"],
-      "_types/*": ["src/types/*"],
-      "_typechain/*": ["artifacts/typechain/*"],
-      "_artifacts/*": ["artifacts/hardhat/*"],
-      "_deployments/*": ["artifacts/deployments/*"]
+      "_services/*": [
+        "src/services/*"
+      ],
+      "_tasks/*": [
+        "src/tasks/*"
+      ],
+      "_types/*": [
+        "src/types/*"
+      ],
+      "_typechain/*": [
+        "artifacts/typechain/*"
+      ],
+      "_artifacts/*": [
+        "artifacts/hardhat/*"
+      ],
+      "_deployments/*": [
+        "artifacts/deployments/*"
+      ]
     },
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,

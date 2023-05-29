@@ -37,7 +37,7 @@ jobs:
           fetch-depth: 0
       - name: Install dependencies
         shell: bash
-        run: yarn --immutable --production false
+        run: yarn --immutable
       - name: Echidna analysis
         shell: bash
         run: scripts/echidna-analyze.sh

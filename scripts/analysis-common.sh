@@ -1,6 +1,6 @@
 
 get_sources_path() {
-  yarn -s hardhat config-value sources-path
+  yarn hardhat config-value sources-path
 }
 
 get_contract_names() {
@@ -9,7 +9,7 @@ get_contract_names() {
     echo "Error: Function needs the first param to be the sources path"
     exit 1
   fi
-  find $sources_path \
+  find "$sources_path" \
     -name '*.sol' \
     -type f \
     -exec sh -c "\
@@ -24,7 +24,7 @@ get_current_date_string() {
 }
 
 get_tests_path() {
-  yarn -s hardhat config-value tests-path
+  yarn hardhat config-value tests-path
 }
 
 create_artifacts_subfolder() {

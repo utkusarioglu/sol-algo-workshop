@@ -1,17 +1,18 @@
 require("dotenv").config();
 import { type HardhatUserConfig } from "hardhat/types";
 import "tsconfig-paths/register";
-import "hardhat-gas-reporter";
+// TODO this one breaks tests while using with ethers v6
+// import "hardhat-gas-reporter";
 import "@nomiclabs/hardhat-ethers";
-// import "@nomiclabs/hardhat-waffle";
 import "hardhat-spdx-license-identifier";
 import "@nomicfoundation/hardhat-chai-matchers";
 import "solidity-coverage";
-  // import "@openzeppelin/hardhat-upgrades"; // TODO causes issues with ethers v6
+// TODO causes issues with ethers v6
+// import "@openzeppelin/hardhat-upgrades";
 import "_tasks/account-balances.task";
 import "_tasks/named-accounts.task";
 import "_tasks/config-value.task";
-// This one is disabled because it keeps logging an object to the console
+// TODO This one is disabled because it keeps logging an object to the console
 // import "hardhat-storage-layout";
 import "@nomiclabs/hardhat-etherscan";
 import "hardhat-deploy";
@@ -42,7 +43,7 @@ const hardhatConfig: HardhatUserConfig = {
     newStorageLayoutPath: "artifacts/storage-layout",
   },
   solidity: {
-    version: "0.8.16",
+    version: "0.8.20",
     settings: {
       optimizer: {
         enabled: true,
@@ -119,7 +120,9 @@ const hardhatConfig: HardhatUserConfig = {
 
   ...(config.has("apiKeys.coinMarketCap") && {
     gasReporter: {
-      outputFile: `artifacts/gas-reporter/gas-usage.${Math.floor(Date.now()/1e3)}.log`,
+      outputFile: `artifacts/gas-reporter/gas-usage.${Math.floor(
+        Date.now() / 1e3
+      )}.log`,
       token: config.get<string>("features.gasReporter.token"),
       enabled: config.get<boolean>("features.gasReporter.enabled"),
       noColors: true,

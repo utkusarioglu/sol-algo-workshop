@@ -13,7 +13,8 @@ jobs:
     name: Run Echidna analysis
     runs-on: ubuntu-latest
     container:
-      image: utkusarioglu/ethereum-devcontainer:1.0.7
+      # image: utkusarioglu/ethereum-devcontainer:1.0.7
+      image: utkusarioglu/ethereum-devcontainer:experiment-feat-analysis-tools-updates-11
       options: --user=0:0
       env:
         COINMARKETCAP_API_KEY: ${{ secrets.COINMARKETCAP_API_KEY }}
@@ -36,7 +37,7 @@ jobs:
           fetch-depth: 0
       - name: Install dependencies
         shell: bash
-        run: yarn --frozen-lockfile --no-progress --production false
+        run: yarn --immutable --production false
       - name: Echidna analysis
         shell: bash
         run: scripts/echidna-analyze.sh

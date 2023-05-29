@@ -43,7 +43,7 @@ const hardhatConfig: HardhatUserConfig = {
     newStorageLayoutPath: "artifacts/storage-layout",
   },
   solidity: {
-    version: "0.8.20",
+    version: "0.8.16",
     settings: {
       optimizer: {
         enabled: true,

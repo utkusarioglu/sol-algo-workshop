@@ -6,6 +6,7 @@ scripts/solc-select-install.sh
 
 FUZZ_CONTRACT_SUFFIX="fuzz.test.sol"
 ANALYSIS_LOG_SUFFIX="echidna.log"
+TESTING_MODE='assertion'
 
 tests_path=$(get_tests_path)
 sources_path=$(get_sources_path)
@@ -35,12 +36,12 @@ main() {
       continue 
     fi
 
-    echo "Testing: '$fuzz_contract_file'…"
-    echidna-test \
+    echo "Testing '$fuzz_contract_file' using '$TESTING_MODE' mode…"
+    echidna \
       "$fuzz_contract_path" \
       --contract "$fuzz_contract_name" \
       --config echidna.config.yml \
-      --test-mode property \
+      --test-mode "$TESTING_MODE" \
       | tee "$analysis_log_path"
 
     echo "Analysis log is available at '$analysis_log_path'"

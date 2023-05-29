@@ -63,10 +63,10 @@
     },
     {
       "type": "shell",
-      "command": "yarn hardhat test ${relativeFile}",
+      "command": "scripts/run-unit-test.sh ${relativeFile}",
       "group": "test",
       "problemMatcher": [],
-      "label": "yarn test $CURRENT_FILE",
+      "label": "yarn test current file",
       "detail": "Test current file using hardhat",
       "presentation": {
         "panel": "dedicated",

@@ -30,7 +30,7 @@ jobs:
         with:
           fetch-depth: 1
       - name: Install dependencies
-        run: yarn --frozen-lockfile --no-progress --production false
+        run: yarn --immutable
       - name: Compile contracts
         run: yarn hardhat compile
       - name: Run unit tests

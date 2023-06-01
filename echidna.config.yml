@@ -4,4 +4,5 @@ coverage: true
 estimateGas: true
 multi-abi: true
 corpusDir: ./artifacts/corpus
-format: json
+format: text
+testLimit: 100000

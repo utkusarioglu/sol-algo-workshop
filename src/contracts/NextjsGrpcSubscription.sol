@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT
 
-pragma solidity 0.8.16;
+pragma solidity 0.8.18;
 
 interface INextjsGrpcSubscription {
   /// @notice Subscribes the `msg.sender` to the service for a

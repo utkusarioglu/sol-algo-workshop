@@ -29,6 +29,12 @@ import {
   namedAccounts,
 } from "_services/account.service";
 
+/**
+ * @dev
+ * #1 Storage layout is disabled unless it's needed. This is because
+ * the library is very verbose on the console, to the point that it
+ * hurts dx.
+ */
 const hardhatConfig: HardhatUserConfig = {
   defaultNetwork: "hardhat",
   paths: {
@@ -39,7 +45,7 @@ const hardhatConfig: HardhatUserConfig = {
     imports: "artifacts/imports",
     deployments: "artifacts/deployments",
     deploy: "src/deployers",
-    // @ts-ignore
+    // @ts-ignore #1
     newStorageLayoutPath: "artifacts/storage-layout",
   },
   solidity: {
@@ -56,6 +62,7 @@ const hardhatConfig: HardhatUserConfig = {
       saveDeployments: true,
       accounts: hardhatAccounts(),
       tags: ["local"],
+      chainId: 8545,
       forking: {
         enabled: config.get<boolean>("features.forking"),
         url: `https://polygon-mumbai.g.alchemy.com/v2/${config.get(

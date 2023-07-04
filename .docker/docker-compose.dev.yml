@@ -4,5 +4,7 @@ services:
   sol-lc-workshop:
     # image: utkusarioglu/ethereum-devcontainer:1.0.7
     image: utkusarioglu/ethereum-devcontainer:experiment-feat-analysis-tools-updates-13
+    ports:
+      - 8545:8545 # Hardhat node
     volumes:
       - ..:/utkusarioglu/workshops/sol-lc-workshop

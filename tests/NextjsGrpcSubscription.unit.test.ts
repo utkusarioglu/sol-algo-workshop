@@ -20,7 +20,7 @@ describe(CONTRACT_NAME, () => {
       beforeEach(async () => {
         const common = await beforeEachFacade<NextjsGrpcSubscription>(
           CONTRACT_NAME,
-          [],
+          [EPOCH_COST],
           index
         );
         instance = common.signerInstance;
@@ -147,6 +147,35 @@ describe(CONTRACT_NAME, () => {
             }).struct;
             expect(response).to.deep.equal(expected);
           });
+        });
+      });
+
+      describe("owner", () => {
+        it("Assigns expected owner", async () => {
+          // @ts-expect-error
+          // FIX typechain is not working as expected in 0.8.18
+          const response = await instance.owner();
+          expect(response).to.equal(testAccounts[0]?.address);
+        });
+      });
+
+      describe("withdraw", () => {
+        it.only("Only allows the owner to withdraw", async () => {
+          const expectedCustomError = "OnlyOwner";
+          const customErrorArgs: [any, string] = [
+            { interface: instance.interface },
+            expectedCustomError,
+          ];
+          // @ts-expect-error
+          // FIX typechain is not working as expected in 0.8.18
+          const tx = instance.withdraw(1n);
+          if (signer.address === testAccounts[0]?.address) {
+            return expect(tx).to.not.be.revertedWithCustomError(
+              ...customErrorArgs
+            );
+          } else {
+            return expect(tx).to.be.revertedWithCustomError(...customErrorArgs);
+          }
         });
       });
     });

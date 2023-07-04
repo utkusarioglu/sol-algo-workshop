@@ -4,14 +4,19 @@ pragma solidity 0.8.18;
 import "../src/contracts/NextjsGrpcSubscription.sol";
 
 contract NextjsGrpcSubscriptionFuzz is NextjsGrpcSubscription {
-  event AssertionFailed();
+  constructor() NextjsGrpcSubscription(2) {}
 
-  function aaaa(uint256 subscriptionSeconds) public {
+  // event AssertionFailed();
+
+  function echidna_balance_expiration(
+    uint256 subscriptionSeconds
+  ) public returns (bool) {
     subscribe(subscriptionSeconds);
-    if (
-      balances[msg.sender].expiration >= block.timestamp + subscriptionSeconds
-    ) {
-      emit AssertionFailed();
-    }
+    return
+      balances[msg.sender].expiration >= block.timestamp + subscriptionSeconds;
   }
+
+  // function echidna_always_fail() public pure returns (bool) {
+  //   return false;
+  // }
 }

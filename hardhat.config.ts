@@ -3,9 +3,9 @@ import { type HardhatUserConfig } from "hardhat/types";
 import "tsconfig-paths/register";
 // TODO this one breaks tests while using with ethers v6
 // import "hardhat-gas-reporter";
-import "@nomiclabs/hardhat-ethers";
-import "hardhat-spdx-license-identifier";
+import "@nomicfoundation/hardhat-ethers";
 import "@nomicfoundation/hardhat-chai-matchers";
+import "hardhat-spdx-license-identifier";
 import "solidity-coverage";
 // TODO causes issues with ethers v6
 // import "@openzeppelin/hardhat-upgrades";
@@ -29,6 +29,12 @@ import {
   namedAccounts,
 } from "_services/account.service";
 
+/**
+ * @dev
+ * #1 Storage layout is disabled unless it's needed. This is because
+ * the library is very verbose on the console, to the point that it
+ * hurts dx.
+ */
 const hardhatConfig: HardhatUserConfig = {
   defaultNetwork: "hardhat",
   paths: {
@@ -39,11 +45,11 @@ const hardhatConfig: HardhatUserConfig = {
     imports: "artifacts/imports",
     deployments: "artifacts/deployments",
     deploy: "src/deployers",
-    // @ts-ignore
+    // @ts-ignore #1
     newStorageLayoutPath: "artifacts/storage-layout",
   },
   solidity: {
-    version: "0.8.16",
+    version: "0.8.18",
     settings: {
       optimizer: {
         enabled: true,
@@ -56,6 +62,7 @@ const hardhatConfig: HardhatUserConfig = {
       saveDeployments: true,
       accounts: hardhatAccounts(),
       tags: ["local"],
+      chainId: 8545,
       forking: {
         enabled: config.get<boolean>("features.forking"),
         url: `https://polygon-mumbai.g.alchemy.com/v2/${config.get(

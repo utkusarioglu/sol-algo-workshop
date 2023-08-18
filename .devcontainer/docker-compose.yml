@@ -6,10 +6,10 @@ services:
     volumes:
       - type: volume
         source: vscode-server-extensions
-        target: /home/hardhat/.vscode-server/extensions
+        target: ${HOME}/.vscode-server/extensions
       - type: volume
         source: vscode-server-insiders-extensions
-        target: /home/hardhat/.vscode-server-insiders/extensions
+        target: ${HOME}/.vscode-server-insiders/extensions
     command: /bin/sh -c "while sleep 1000; do :; done"
 
 volumes:

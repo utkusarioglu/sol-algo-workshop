@@ -3,9 +3,9 @@ import { type HardhatUserConfig } from "hardhat/types";
 import "tsconfig-paths/register";
 // TODO this one breaks tests while using with ethers v6
 // import "hardhat-gas-reporter";
-import "@nomiclabs/hardhat-ethers";
-import "hardhat-spdx-license-identifier";
+import "@nomicfoundation/hardhat-ethers";
 import "@nomicfoundation/hardhat-chai-matchers";
+import "hardhat-spdx-license-identifier";
 import "solidity-coverage";
 // TODO causes issues with ethers v6
 // import "@openzeppelin/hardhat-upgrades";

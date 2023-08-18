@@ -4,6 +4,6 @@ services:
   sol-lc-workshop:
     image: utkusarioglu/ethereum-devcontainer:1.0.8
     ports:
-      - 8545:8545 # Hardhat node
+      - 8545:8545
     volumes:
       - ..:/utkusarioglu/workshops/sol-lc-workshop

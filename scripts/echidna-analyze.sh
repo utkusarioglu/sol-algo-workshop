@@ -6,7 +6,7 @@ scripts/solc-select-install.sh
 
 FUZZ_CONTRACT_SUFFIX="fuzz.test.sol"
 ANALYSIS_LOG_SUFFIX="echidna.log"
-TESTING_MODE='assertion'
+TESTING_MODE='property'
 
 tests_path=$(get_tests_path)
 sources_path=$(get_sources_path)

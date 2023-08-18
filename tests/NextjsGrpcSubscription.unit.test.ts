@@ -1,5 +1,5 @@
 import { type SignerWithAddress } from "@nomiclabs/hardhat-ethers/signers";
-import { type NextjsGrpcSubscription } from "_typechain/NextjsGrpcSubscription.sol";
+import { type NextjsGrpcSubscription as Contract } from "_typechain/NextjsGrpcSubscription.sol";
 import {
   asEvmObject,
   beforeEachFacade,
@@ -13,12 +13,12 @@ const EPOCH_COST = 2n;
 
 describe(CONTRACT_NAME, () => {
   testAccounts.forEach(({ index, describeMessage }) => {
-    let instance: NextjsGrpcSubscription;
+    let instance: Contract;
     let signer: SignerWithAddress;
 
     describe(describeMessage, () => {
       beforeEach(async () => {
-        const common = await beforeEachFacade<NextjsGrpcSubscription>(
+        const common = await beforeEachFacade<Contract>(
           CONTRACT_NAME,
           [EPOCH_COST],
           index

@@ -1,5 +1,5 @@
 import { type SignerWithAddress } from "@nomicfoundation/hardhat-ethers/signers";
-import { type SortingAlgorithms as Contract } from "_typechain/SortingAlgorithms";
+import { type CountingSort as Contract } from "_typechain/CountingSort";
 import {
   asEvmObject,
   beforeEachFacade,
@@ -8,7 +8,7 @@ import {
 } from "_services/test.service";
 import { ethers } from "hardhat";
 
-const CONTRACT_NAME = "SortingAlgorithms";
+const CONTRACT_NAME = "CountingSort";
 
 describe(CONTRACT_NAME, () => {
   testAccounts.slice(0, 1).forEach(({ index, describeMessage }) => {
@@ -35,7 +35,7 @@ describe(CONTRACT_NAME, () => {
         ].forEach((unsorted) => {
           it(`Can sort ${unsorted.join(", ")}`, async () => {
             // const unsorted = [3, 2, 1, 3];
-            const response = await instance.countingSort(unsorted);
+            const response = await instance.loop(unsorted);
             const expected = unsorted.sort().map((n) => BigInt(n));
             expect(response).to.deep.eq(expected);
           });

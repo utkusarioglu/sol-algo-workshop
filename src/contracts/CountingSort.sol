@@ -2,31 +2,11 @@
 
 pragma solidity 0.8.18;
 
-library Math {
-  function min(uint16[] memory arr) internal pure returns(uint16) {
-    uint16 current = type(uint16).max;
-    for (uint16 i = 0; i < arr.length; i++) {
-      if(current > arr[i]) {
-        current = arr[i];
-      }
-    } 
-    return current;
-  }
+import "./Math.lib.sol";
 
-  function max(uint16[] memory arr) internal pure returns(uint16) {
-    uint16 current = type(uint16).min;
-    for (uint16 i = 0; i < arr.length; i++) {
-      if(current < arr[i]) {
-        current = arr[i];
-      }
-    } 
-    return current;
-  }
-}
+contract CountingSort {
 
-contract SortingAlgorithms {
-
-  function countingSort(uint16[] memory unsorted) external pure returns(uint16[] memory) {
+  function loop(uint16[] memory unsorted) external pure returns(uint16[] memory) {
     uint16 minValue = Math.min(unsorted);
     uint16 maxValue = Math.max(unsorted);
 

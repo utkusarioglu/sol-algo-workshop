@@ -1,5 +1,5 @@
 import { type SignerWithAddress } from "@nomicfoundation/hardhat-ethers/signers";
-import { type CountingSort as Contract } from "_typechain/CountingSort";
+import { type InsertionSort as Contract } from "_typechain/InsertionSort";
 import {
   asEvmObject,
   beforeEachFacade,
@@ -8,7 +8,7 @@ import {
 } from "_services/test.service";
 import { ethers } from "hardhat";
 
-const CONTRACT_NAME = "CountingSort";
+const CONTRACT_NAME = "InsertionSort";
 
 describe(CONTRACT_NAME, () => {
   testAccounts.slice(0, 1).forEach(({ index, describeMessage }) => {

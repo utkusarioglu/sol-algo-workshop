@@ -1,3 +1,3 @@
 import { simpleDeploy } from "_services/deployment.service";
 
-export default simpleDeploy(true, "SortingAlgorithms", []);
+export default simpleDeploy(true, "CountingSort", []);

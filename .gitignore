@@ -13,3 +13,5 @@ cache
 crytic-export
 /.ignore
 mcore_*
+
+.yarn/install-state.gz

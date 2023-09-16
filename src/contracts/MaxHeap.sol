@@ -2,11 +2,13 @@
 
 pragma solidity 0.8.18;
 
-import "hardhat/console.sol";
-
 contract MaxHeap {
   uint16[] private heapArray;
   uint256 private heapLength = 0;
+
+  function getHeapLength() public view returns(uint256) {
+    return heapLength;
+  }
 
   function reorder(uint256 index) private {
     uint256 rightChildIndex = getRightChildIndex(index);
@@ -64,11 +66,13 @@ contract MaxHeap {
   }
 
   function popHead() public {
-    uint256 lastIndex = heapLength - 1;
-    if(lastIndex == 0) {
+    if(heapLength < 1) {
       return;
     }
-    heapArray[0] = heapArray[lastIndex];
+    uint256 lastIndex = heapLength - 1;
+    if (lastIndex != 0) {
+      heapArray[0] = heapArray[lastIndex];
+    }
     delete heapArray[lastIndex];
     heapLength--;
     if (heapLength < 2) {

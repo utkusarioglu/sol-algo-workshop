@@ -14,12 +14,17 @@ type SimpleDeployFactory = (
  * #1 Typechain types are not used here to avoid type issues due to
  * #  outdated or yet absent types. The first run of hardhat ensures
  * #  the types are created or fixed.
+ * #2 This is needed because `storageLayout` is by default disabled
+ * #  in hardhat config
  */
 export const simpleDeploy: SimpleDeployFactory =
   (enabled, contractName, args) =>
-    // @ts-ignore This is needed because `storageLayout` is by default 
-    // disabled in hardhat config
-  async ({ deployments: { deploy }, getNamedAccounts, storageLayout }) => {
+  async ({
+    deployments: { deploy },
+    getNamedAccounts,
+    // @ts-ignore #2
+    storageLayout,
+  }) => {
     if (!enabled) {
       console.log(
         `Skipping contract "${contractName}" as it is set as disabled`

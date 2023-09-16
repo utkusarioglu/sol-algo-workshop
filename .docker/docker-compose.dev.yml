@@ -1,9 +1,9 @@
 version: "3.9"
 
 services:
-  sol-lc-workshop:
+  sol-algo-workshop:
     image: utkusarioglu/ethereum-devcontainer:1.0.8
     ports:
       - 8545:8545
     volumes:
-      - ..:/utkusarioglu/workshops/sol-lc-workshop
+      - ..:/utkusarioglu/workshops/sol-algo-workshop

@@ -1,6 +1,6 @@
 version: "3.9"
 services:
-  sol-lc-workshop:
+  sol-algo-workshop:
     environment:
       GH_TOKEN: ${GH_TOKEN}
     volumes:
@@ -14,6 +14,6 @@ services:
 
 volumes:
   vscode-server-extensions:
-    name: sol-lc-workshop-vscode-server-extensions
+    name: sol-algo-workshop-vscode-server-extensions
   vscode-server-insiders-extensions:
-    name: sol-lc-workshop-vscode-server-extensions-insiders
+    name: sol-algo-workshop-vscode-server-extensions-insiders

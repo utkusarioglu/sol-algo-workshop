@@ -14,7 +14,7 @@ jobs:
       - name: Produce values needed for other jobs
         id: values
         run: |
-          artifact_name="sol-lc-workshop.artifacts-$(date +%y%m%d-%H%M%S)"
+          artifact_name="sol-algo-workshop.artifacts-$(date +%y%m%d-%H%M%S)"
           echo "Using artifact name: '$artifact_name'"
           echo "artifact_name=$artifact_name" >> $GITHUB_OUTPUT
     

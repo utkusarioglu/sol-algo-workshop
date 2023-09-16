@@ -1,11 +1,11 @@
 {
-  "name": "sol-lc-workshop.workshops.utkusarioglu.com",
+  "name": "sol-algo-workshop.workshops.utkusarioglu.com",
   "dockerComposeFile": [
     "../.docker/docker-compose.dev.yml",
     "docker-compose.yml"
   ],
-  "service": "sol-lc-workshop",
-  "workspaceFolder": "/utkusarioglu/workshops/sol-lc-workshop",
+  "service": "sol-algo-workshop",
+  "workspaceFolder": "/utkusarioglu/workshops/sol-algo-workshop",
   "postCreateCommand": "scripts/post-create-command.sh",
   "customizations": {
     "vscode": {

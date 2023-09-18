@@ -42,12 +42,18 @@ describe(CONTRACT_NAME, () => {
           deployer
         );
         const maxHeapInstance = await maxHeapContractFactory.deploy();
+        const minHeapContractFactory = await ethers.getContractFactory(
+          "MinHeap",
+          deployer
+        );
+        const minHeapInstance = await minHeapContractFactory.deploy();
         const heapSortContractFactory = await ethers.getContractFactory(
           "HeapSort",
           deployer
         );
         const heapSortInstance = await heapSortContractFactory.deploy(
-          await maxHeapInstance.getAddress()
+          await maxHeapInstance.getAddress(),
+          await minHeapInstance.getAddress()
         );
         const signerInstance = heapSortInstance.connect(currentSigner);
         instance = signerInstance;

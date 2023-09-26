@@ -22,15 +22,19 @@ const deployer: DeployFunction = async ({
   const maxHeapInstance = (await deploy("MaxHeap", {
     from: deployer,
   })) as any; // #1
+  const minHeapInstance = await deploy("MinHeap", {
+    from: deployer,
+  });
   const heapSortInstance = await deploy("HeapSort", {
     from: deployer,
-    args: [maxHeapInstance.address],
+    args: [maxHeapInstance.address, minHeapInstance.address],
   });
 
   if (!!storageLayout && !!storageLayout.export) {
     await storageLayout.export();
   }
   console.log(`"MaxHeap" deployed at ${maxHeapInstance.address}`);
+  console.log(`"MinHeap" deployed at ${minHeapInstance.address}`);
   console.log(`"HeapSort" deployed at ${heapSortInstance.address}`);
 };
 

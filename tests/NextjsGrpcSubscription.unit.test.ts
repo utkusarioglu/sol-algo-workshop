@@ -1,4 +1,4 @@
-import { type SignerWithAddress } from "@nomiclabs/hardhat-ethers/signers";
+import { type SignerWithAddress } from "@nomicfoundation/hardhat-ethers/signers";
 import { type NextjsGrpcSubscription as Contract } from "_typechain/NextjsGrpcSubscription.sol";
 import {
   asEvmObject,

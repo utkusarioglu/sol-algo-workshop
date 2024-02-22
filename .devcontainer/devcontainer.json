@@ -16,13 +16,13 @@
         }
       },
       "extensions": [
-        "JuanBlanco.solidity",
         "MythX.mythxvsc",
         "joaompinto.vscode-graphviz",
         "cschleiden.vscode-github-actions",
         "GitHub.vscode-pull-request-github",
         "esbenp.prettier-vscode",
-        "searKing.preview-vscode"
+        "searKing.preview-vscode",
+        "NomicFoundation.hardhat-solidity"
       ]
     }
   }

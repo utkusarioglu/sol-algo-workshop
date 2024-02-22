@@ -80,7 +80,7 @@ function resolve_unit_test_file_relpath {
 function main {
   do_checks "$@"
   unit_test_file_relpath=$(resolve_unit_test_file_relpath "$@")
-  yarn hardhat test "$unit_test_file_relpath"
+  echo y | yarn hardhat test "$unit_test_file_relpath"
 }
 
 main "$@"

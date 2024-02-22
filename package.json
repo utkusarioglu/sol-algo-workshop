@@ -7,8 +7,8 @@
   "types": "artifacts/typechain",
   "scripts": {
     "test": "hardhat test",
-    "node": "hardhat node --hostname 0.0.0.0",
-    "console": "hardhat console --network localhost",
+    "hardhat-node": "hardhat node --hostname 0.0.0.0",
+    "hardhat-console": "hardhat console --network localhost",
     "clean": "rm -rf node_modules artifacts"
   },
   "devDependencies": {

@@ -5,7 +5,6 @@ import config from "config";
 import type { ConfigAccount, ConfigAccounts } from "../types/config";
 import type { BaseContract } from "ethers";
 
-
 export const expect = chaiExpect;
 
 /**
@@ -105,7 +104,10 @@ export async function beforeEachFacade<C extends BaseContract>(
   await run("compile", { quiet: true, noTypechain: true });
   const deployer = await getSigner(0);
   const signer = await getSigner(index);
-  const contractFactory = await ethers.getContractFactory(contractName, deployer);
+  const contractFactory = await ethers.getContractFactory(
+    contractName,
+    deployer
+  );
   const deploymentInstance = (await contractFactory.deploy(...args)) as C;
   const signerInstance = deploymentInstance.connect(signer) as C;
   return {

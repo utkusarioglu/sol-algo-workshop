@@ -3,7 +3,7 @@
   "tasks": [
     {
       "type": "npm",
-      "script": "node",
+      "script": "hardhat-node",
       "label": "Hardhat node",
       "detail": "Start a hardhat node",
       "presentation": {
@@ -23,7 +23,7 @@
     },
     {
       "type": "npm",
-      "script": "console",
+      "script": "hardhat-console",
       "label": "Hardhat console",
       "detail": "Start a Hardhat console instance",
       "presentation": {

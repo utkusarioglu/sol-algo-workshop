@@ -3,6 +3,7 @@
 set -e
 
 TESTS_RELPATH='tests'
+CONTRACTS_RELPATH='src/contracts'
 UNIT_TEST_FULL_EXTENSION='unit.test.ts'
 
 current_file="$1"
@@ -62,6 +63,12 @@ function do_checks {
   fi
 }
 
+function get_relpath {
+  current_file=$1
+  contracts_relpath_with_slash="${CONTRACTS_RELPATH}/"
+  dirname ${current_file/$contracts_relpath_with_slash}
+}
+
 function resolve_unit_test_file_relpath {
   current_file=$1
   full_extension=$(get_full_extension $current_file)
@@ -72,9 +79,21 @@ function resolve_unit_test_file_relpath {
   fi
 
   file_base_name=$(basename $current_file ".$full_extension")
-  unit_test_file_relpath="$TESTS_RELPATH/$file_base_name.$UNIT_TEST_FULL_EXTENSION"
+  file_relpath=$(get_relpath $current_file)
 
-  echo "$unit_test_file_relpath"
+  unit_test_file_relpath=(
+    $TESTS_RELPATH 
+    $file_relpath 
+    "$file_base_name.$UNIT_TEST_FULL_EXTENSION"
+  )
+
+  joined=""
+  for part in ${unit_test_file_relpath[@]}; do
+    joined+="${part}/"
+  done
+  joined=${joined%/}
+  
+  echo "$joined"
 }
 
 function main {

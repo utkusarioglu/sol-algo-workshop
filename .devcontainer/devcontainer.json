@@ -16,7 +16,6 @@
         }
       },
       "extensions": [
-        "MythX.mythxvsc",
         "joaompinto.vscode-graphviz",
         "cschleiden.vscode-github-actions",
         "GitHub.vscode-pull-request-github",

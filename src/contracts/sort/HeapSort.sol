@@ -2,8 +2,8 @@
 
 pragma solidity 0.8.18;
 
-import "./MaxHeap.sol";
-import "./MinHeap.sol";
+import "../data-structures/MaxHeap.sol";
+import "../data-structures/MinHeap.sol";
 
 contract HeapSort {
     MaxHeap private maxHeap;

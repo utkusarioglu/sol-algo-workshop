@@ -20,7 +20,7 @@ describe(CONTRACT_NAME, () => {
         const common = await beforeEachFacade<Contract>(
           CONTRACT_NAME,
           [],
-          index
+          index,
         );
         instance = common.signerInstance;
         signer = common.signer;

@@ -21,7 +21,8 @@
         "GitHub.vscode-pull-request-github",
         "esbenp.prettier-vscode",
         "searKing.preview-vscode",
-        "NomicFoundation.hardhat-solidity"
+        "NomicFoundation.hardhat-solidity",
+        "hosho.solidity-debugger"
       ]
     }
   }
